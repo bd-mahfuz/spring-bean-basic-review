@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+	<bean id="course" class="com.learnSpring.injectCollections.Course">
+		<property name="id" value="1"></property>
+		<property name="courseName" value="Java"></property>
+		<property name="courseCode" value="CSE3030"></property>
+	</bean>
+
+	<bean id="course2" class="com.learnSpring.injectCollections.Course">
+		<property name="id" value="2"></property>
+		<property name="courseName" value="C++"></property>
+		<property name="courseCode" value="CSE2020"></property>
+	</bean>
+
+	<bean id="student" class="com.learnSpring.injectCollections.Student">
+		<property name="listOfCourse">
+			<list>
+				<!-- also possible to add a inner bean -->
+				<bean class="com.learnSpring.injectCollections.Course">
+					<property name="id" value="3"></property>
+					<property name="courseName" value="C"></property>
+					<property name="courseCode" value="CSE2020"></property>
+				</bean>
+				<ref bean="course" />
+				<ref bean="course2" />
+			</list>
+		</property>
+	</bean>
+
+	<bean id="student2" class="com.learnSpring.injectCollections.Student">
+		<property name="setOfCourses">
+			<set>
+				<ref bean="course" />
+				<ref bean="course2" />
+			</set>
+		</property>
+	</bean>
+
+	<bean id="student3" class="com.learnSpring.injectCollections.Student">
+		<property name="map">
+			<map>
+				<entry key="key 1" value-ref="course"></entry>
+				<entry key="key 2" value-ref="course2"></entry>
+			</map>
+		</property>
+	</bean>
+
+	<bean id="student4" class="com.learnSpring.injectCollections.Student">
+		<property name="properties">
+			<props>
+				<prop key="key1">Mahfuz</prop>
+				<prop key="key2">Alex</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

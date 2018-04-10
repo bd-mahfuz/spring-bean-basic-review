@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+	<version>1</version>
+	<pluginVersion><![CDATA[3.9.1.201710100539-RELEASE]]></pluginVersion>
+	<configSuffixes>
+		<configSuffix><![CDATA[xml]]></configSuffix>
+	</configSuffixes>
+	<enableImports><![CDATA[false]]></enableImports>
+	<configs>
+		<config>resources/spring-module.xml</config>
+		<config>src/main/java/com/learnSpring/injectBySetter/spring-module.xml</config>
+		<config>src/main/java/com/learnSpring/autowiring/autowire.xml</config>
+		<config>src/main/java/com/learnSpring/beanInherit/bean-inherite.xml</config>
+		<config>src/main/java/com/learnSpring/beanScope/bean-scope.xml</config>
+		<config>src/main/java/com/learnSpring/beanLifeSycle/bean-lifeCycle.xml</config>
+		<config>src/main/java/com/learnSpring/beanPostProcessor/bean-postProcessor.xml</config>
+		<config>src/main/java/com/learnSpring/propertyPlaceHolder/property-placeholder.xml</config>
+		<config>src/main/java/com/learnSpring/commonAnoBeanPostProcessor/common-annotation.xml</config>
+		<config>src/main/java/com/learnSpring/requiredAnnotation/required-annotation.xml</config>
+		<config>src/main/java/com/learnSpring/autowireAnnotation/auto-wireAnnotation.xml</config>
+		<config>src/main/java/com/learnSpring/listFactoryBean/list-factoryBean.xml</config>
+	</configs>
+	<autoconfigs>
+	</autoconfigs>
+	<configSets>
+	</configSets>
+</beansProjectDescription>

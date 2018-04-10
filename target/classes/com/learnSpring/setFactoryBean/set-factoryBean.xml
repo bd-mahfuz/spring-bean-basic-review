@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<bean id="emp" class="com.learnSpring.setFactoryBean.Employee">
+		<property name="name">
+			<bean class="org.springframework.beans.factory.config.SetFactoryBean">
+				<property name="targetSetClass">
+					<value>java.util.HashSet</value>
+				</property>
+				<property name="sourceSet">
+					<set>
+						<value>Mahfuz</value>
+						<value>Hafiz</value>
+						<value>Karim</value>
+					</set>
+				</property>
+				
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- another way -->
+	<bean id="emp2" class="com.learnSpring.setFactoryBean.Employee">
+		<property name="name">
+			<util:set set-class="java.util.HashSet">
+				<value>Karim</value>
+				<value>Rahim</value>
+				<value>Abul</value>
+			</util:set>
+		</property>
+	</bean>
+</beans>

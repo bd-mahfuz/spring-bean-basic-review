@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="student" class="com.learnSpring.injectBySetter.Student">
+		<property name="id" value="1"></property>
+		<property name="name" value="Mahfuz"></property>
+	</bean>
+
+	<bean id="course" class="com.learnSpring.injectBySetter.Course">
+		<property name="courseName" value="Java"></property>
+		<property name="courseCode" value="CSE3232"></property>
+	</bean>
+	<bean id="course2" class="com.learnSpring.injectBySetter.Course">
+		<property name="courseName" value="C++"></property>
+		<property name="courseCode" value="CSE2121"></property>
+	</bean>
+
+	<bean id="student2" class="com.learnSpring.injectBySetter.Student">
+		<property name="id" value="1"></property>
+		<property name="name" value="Mahfuz"></property>
+		<property name="course">
+			<ref bean="course" />
+		</property>
+	</bean>
+
+	<bean id="student3" class="com.learnSpring.injectBySetter.Student">
+		<property name="id" value="1"></property>
+		<property name="name" value="Mahfuz"></property>
+		<property name="listOfCourses">
+			<list>
+				<ref bean="course" />
+				<ref bean="course2" />
+			</list>
+		</property>
+	</bean>
+
+</beans>

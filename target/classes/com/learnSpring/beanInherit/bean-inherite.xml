@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="address" class="com.learnSpring.beanInherit.Address">
+		<property name="state" value="Badda"></property>
+		<property name="city" value="Dhaka"></property>
+	</bean>
+	
+	<bean id="address2" class="com.learnSpring.beanInherit.Address">
+		<property name="state" value="Merul Badda"></property>
+		<property name="city" value="Dhaka"></property>
+	</bean>
+	
+	<!-- <bean id="student" class="com.learnSpring.beanInherit.Student">
+		<property name="address" ref="address"></property>
+	</bean> -->
+	
+	<bean id="student" class="com.learnSpring.beanInherit.Student" abstract = "true">
+	<property name="address" ref="address"></property>
+		<property name="listOfAddress">
+			<list>
+				<ref bean="address"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="student2" class="com.learnSpring.beanInherit.Student" parent="student">
+		<property name="name" value="Hasan"></property>
+		<property name="age" value="23"></property>
+		<property name="listOfAddress">
+			<list merge="true">
+				<ref bean="address2"/>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	
+</beans>
