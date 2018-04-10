@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="em" class="com.learnSpring.injectByConstructor.Employee">
+		<constructor-arg value="Mahfuz"></constructor-arg>
+		<constructor-arg value="1" type="int"></constructor-arg>
+	</bean>
+
+	<bean id="em2" class="com.learnSpring.injectByConstructor.Employee">
+		<constructor-arg name="name" value="Mahfuz"></constructor-arg>
+	</bean>
+
+
+	<bean id="address" class="com.learnSpring.injectByConstructor.Address">
+		<constructor-arg value="Merul Badda"></constructor-arg>
+		<constructor-arg value="Dhaka"></constructor-arg>
+		<constructor-arg value="Bangladesh"></constructor-arg>
+	</bean>
+	<bean id="address2" class="com.learnSpring.injectByConstructor.Address">
+		<constructor-arg value="Merul Badda2"></constructor-arg>
+		<constructor-arg value="Dhaka2"></constructor-arg>
+		<constructor-arg value="Bangladesh2"></constructor-arg>
+	</bean>
+
+	<!-- example with dependent object -->
+	<bean id="em3" class="com.learnSpring.injectByConstructor.Employee">
+		<constructor-arg value="1" type="int"></constructor-arg>
+		<constructor-arg value="Mahfuz"></constructor-arg>
+		<constructor-arg>
+			<ref bean="address" />
+		</constructor-arg>
+	</bean>
+
+	<!-- example with list of address -->
+	<bean id="em4" class="com.learnSpring.injectByConstructor.Employee">
+		<constructor-arg value="1" type="int"></constructor-arg>
+		<constructor-arg value="Abdullah"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<ref bean="address" />
+				<ref bean="address2" />
+			</list>
+		</constructor-arg>
+
+	</bean>
+
+	<!-- example with list of just String -->
+	<bean id="em5" class="com.learnSpring.injectByConstructor.Employee">
+		<constructor-arg value="1" type="int"></constructor-arg>
+		<constructor-arg value="Abdullah"></constructor-arg>
+		<constructor-arg>
+			<list>
+				<value>Dhaka</value>
+				<value>Bangladesh</value>
+			</list>
+		</constructor-arg>
+
+	</bean>
+
+</beans>
