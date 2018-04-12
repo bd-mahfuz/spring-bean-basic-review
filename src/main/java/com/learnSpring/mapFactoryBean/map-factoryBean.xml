@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+	<bean id="emp" class="com.learnSpring.mapFactoryBean.Employee">
+		<property name="name">
+			<bean class="org.springframework.beans.factory.config.MapFactoryBean">
+				<property name="targetMapClass">
+					<value>java.util.HashMap</value>
+				</property>
+				<property name="sourceMap">
+					<map>
+						<entry key="key 1" value="Harun"></entry>
+						<entry key="key 2" value="Aziz"></entry>
+						<entry key="key 3" value="Tarek"></entry>
+					</map>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- another way -->
+	<bean id="emp2" class="com.learnSpring.mapFactoryBean.Employee">
+		<property name="name">
+			<util:map map-class="java.util.HashMap">
+				<entry key="key 1" value="Rashid"></entry>
+				<entry key="key 2" value="Hasan"></entry>
+				<entry key="key 3" value="Kalam"></entry>
+			</util:map>
+		</property>
+	</bean>
+</beans>
