@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="beforeInit" default-destroy-method="beforeDestroy">
+
+
+	<!-- <bean id="emp" class="com.learnSpring.beanLifeSycle.Employee" init-method="beforeInit" destroy-method="beforeDestroy">
+		<property name="empName" value="Hafiz"></property>
+		<property name="empId" value="1"></property>
+	</bean> -->
+	
+	<bean id="sup" class="com.learnSpring.beanLifeSycle.Supplier">
+		<property name="name" value="Hafiz"></property>
+		<property name="address" value="Dhaka"></property>
+	</bean>
+</beans>
